@@ -80,5 +80,5 @@ if [ ! -d "${BASE_DIR}/logs" ]; then
   mkdir ${BASE_DIR}/logs
 fi
 
-echo "Openjob is starting, you can docker logs your container"
+echo "Openjob server is starting, you can docker logs your container"
 exec "$JAVA" ${JAVA_OPT} openjob.openjob

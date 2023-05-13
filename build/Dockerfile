@@ -7,7 +7,7 @@ ARG OPENJOB_VERSION=1.0.0
 
 # set environment
 ENV OPENJOB_USER="openjob" \
-    BASE_DIR="/home" \
+    BASE_DIR="/home/openjob" \
     JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk" \
     JAVA="/usr/lib/jvm/java-1.8.0-openjdk/bin/java" \
     JVM_XMX="2048m" \
@@ -28,10 +28,13 @@ RUN set -x \
     && wget  https://ghproxy.com/https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
     #&& wget  https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
     && tar -xzvf /tmp/openjob-server-${OPENJOB_VERSION}.tar.gz -C /tmp \
-    && mv /tmp/openjob-server /home/ \
+    && mv /tmp/openjob-server /tmp/openjob && mv /tmp/openjob /home/ \
     && rm -rf /tmp/openjob-server-${OPENJOB_VERSION}.tar.gz \
     && ln -snf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo '$TIME_ZONE' > /etc/timezone \
     && yum clean all
 
+
+ADD bin/docker-startup.sh bin/docker-startup.sh
+
 EXPOSE 8080
-ENTRYPOINT ["sh","/home/openjob-server/bin/startup.sh"]
+ENTRYPOINT ["sh","bin/docker-startup.sh"]
