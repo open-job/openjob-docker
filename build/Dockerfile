@@ -17,6 +17,7 @@ ENV OPENJOB_USER="openjob" \
     JVM_MetaspaceSize="128m" \
     JVM_MaxMetaspaceSize="256m" \
     JVM_MaxDirectMemorySize="1024m" \
+    OPENJOB_CONFIG_PATH="" \
     TIME_ZONE="Asia/Shanghai"
 
 WORKDIR /$BASE_DIR
@@ -24,7 +25,8 @@ WORKDIR /$BASE_DIR
 RUN set -x \
     && yum update -y \
     && yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel wget iputils nc vim libcurl \
-    && wget  https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
+    && wget  https://ghproxy.com/https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
+    #&& wget  https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
     && tar -xzvf /tmp/openjob-server-${OPENJOB_VERSION}.tar.gz -C /tmp \
     && mv /tmp/openjob-server /home/ \
     && rm -rf /tmp/openjob-server-${OPENJOB_VERSION}.tar.gz \
