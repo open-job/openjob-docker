@@ -24,7 +24,7 @@ docker-compose.yml
 ```yaml
 version: '3'
 services:
-  rabbitmq-server:
+  openjob-server:
     image: openjob:1.0.0
     restart: always
     container_name: openjob-server

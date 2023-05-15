@@ -1,6 +1,6 @@
 version: '3'
 services:
-  rabbitmq-server:
+  openjob-server:
     image: openjob:latest
     restart: always
     container_name: openjob-server
