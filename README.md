@@ -2,6 +2,11 @@
 
 ## Docker
 
+build
+```shell
+cd build && docker build --tag=openjob:v1.0.0 .
+```
+
 .env
 ```properties
 OJ_DS_URL=jdbc:mysql://127.0.0.1:3306/openjob?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
