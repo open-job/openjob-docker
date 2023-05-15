@@ -37,3 +37,12 @@ docker-compose up
 docker-compose up -d
 
 ```
+
+## docker hub
+```
+docker login
+
+docker tag openjob:1.0.0 openjob/openjob-server:1.0.0
+
+docker push openjob/openjob-server:1.0.0
+```
