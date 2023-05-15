@@ -4,7 +4,7 @@
 
 build
 ```shell
-cd build && docker build --tag=openjob:v1.0.0 .
+cd build && docker build --tag=openjob:1.0.0 .
 ```
 
 .env
