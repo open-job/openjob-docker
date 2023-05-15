@@ -1,7 +1,7 @@
 version: '3'
 services:
   openjob-server:
-    image: openjob:latest
+    image: openjob/openjob-server:latest
     restart: always
     container_name: openjob-server
     environment:

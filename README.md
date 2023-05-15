@@ -25,7 +25,7 @@ docker-compose.yml
 version: '3'
 services:
   openjob-server:
-    image: openjob:1.0.0
+    image: openjob/openjob-server:latest
     restart: always
     container_name: openjob-server
     environment:
