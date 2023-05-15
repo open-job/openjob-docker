@@ -1,11 +1,14 @@
 version: '3'
 services:
   rabbitmq-server:
-    image: openjob:v1.0.0
+    image: openjob:latest
     restart: always
     container_name: openjob-server
     environment:
-      - OJ_DS_URL=jdbc:mysql://192.168.31.136:3306/openjob?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-      - OJ_LOG_STORAGE_MYSQL_URL=jdbc:mysql://192.168.31.136:3306/openjob?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      - OJ_DS_URL=jdbc:mysql://172.20.0.235:3306/openjob?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      - OJ_LOG_STORAGE_MYSQL_URL=jdbc:mysql://172.20.0.235:3306/openjob?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      - OJ_SCHEDULER_DELAY_ENABLE=true
+      - OJ_REDIS_HOST=172.20.0.235
     ports:
       - "8080:8080"
+      - "25520:25520"
