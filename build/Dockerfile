@@ -22,14 +22,10 @@ ENV OPENJOB_USER="openjob" \
 
 WORKDIR /$BASE_DIR
 
-COPY openjob-server-1.0.0.tar.gz /tmp/openjob-server-1.0.0.tar.gz
-
-
 RUN set -x \
     && yum update -y \
     && yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel wget iputils nc vim libcurl \
-#    && wget  https://ghproxy.com/https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
-    #&& wget  https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
+    && wget  https://github.com/open-job/openjob/releases/download/v${OPENJOB_VERSION}/openjob-server-${OPENJOB_VERSION}.tar.gz -P /tmp \
     && tar -xzvf /tmp/openjob-server-${OPENJOB_VERSION}.tar.gz -C /tmp \
     && mv /tmp/openjob-server /tmp/openjob && mv /tmp/openjob /home/ \
     && rm -rf /tmp/openjob-server-${OPENJOB_VERSION}.tar.gz \
