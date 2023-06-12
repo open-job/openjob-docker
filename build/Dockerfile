@@ -3,7 +3,7 @@ FROM centos:7.5.1804
 # set label
 LABEL maintainer="stelin <swoft@qq.com>"
 
-ARG OPENJOB_VERSION=1.0.2
+ARG OPENJOB_VERSION=1.0.3
 
 # set environment
 ENV OPENJOB_USER="openjob" \
