@@ -4,7 +4,7 @@
 
 build
 ```shell
-cd build && docker build --tag=openjob:1.0.6 .
+cd build && docker build --tag=openjob:1.0.7 .
 ```
 
 .env
@@ -47,7 +47,7 @@ docker-compose up -d
 ```
 docker login
 
-docker tag openjob:1.0.6 openjob/openjob-server:1.0.6
+docker tag openjob:1.0.7 openjob/openjob-server:1.0.7
 
-docker push openjob/openjob-server:1.0.6
+docker push openjob/openjob-server:1.0.7
 ```
